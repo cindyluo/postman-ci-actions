@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@main
       - uses: matt-ball/newman-action@master
         with:
-          collection: tests/api_testing.postman_collection.json
-          environment: tests/production.postman_environment.json
+          collection: ./tests/api_testing.postman_collection.json
+          environment: ./tests/production.postman_environment.json
           reporters: cli,json
-          reporter-junit-export: test-reports/junit.xml
+          reporter: { junit : { export : './test-reports/junit.xml' } } 
       - name: Output the run Details
         uses: actions/upload-artifact@v2
         with:
