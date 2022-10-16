@@ -1,0 +1,23 @@
+name: Newman Run
+
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: matt-ball/newman-action@master
+        with:
+          collection: tests/api_testing.postman_collection.json
+          environment: tests/production.postman_environment.json
+          reporters: cli,json
+          reporter-junit-export: test-reports/junit.xml
+      - name: Output the run Details
+        uses: actions/upload-artifact@v2
+        with:
+          name: RunReports
+          path: test-reports
