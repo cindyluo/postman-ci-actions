@@ -14,7 +14,7 @@ jobs:
         with:
           collection: ./tests/api_testing.postman_collection.json
           environment: ./tests/production.postman_environment.json
-          reporters: '["cli", "json"]'
+          reporters: '["cli", "junit"]'
           reporter: '{ junit : { export : "./test-reports/junit.xml" } }'
       - name: Output the run Details
         uses: actions/upload-artifact@v2
