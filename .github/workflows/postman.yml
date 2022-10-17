@@ -1,4 +1,4 @@
-name: Newman Run
+name: Use Newman
 
 on:
   push:
